@@ -1,0 +1,36 @@
+import discord
+from discord.ext import commands
+from main import pswd
+import os
+import random
+import datetime
+
+
+# Zmienna intencje przechowuje uprawnienia bota
+intents = discord.Intents.default()
+# Włączanie uprawnienia do czytania wiadomości
+intents.message_content = True
+
+bot = commands.Bot(command_prefix="!", intents=intents)
+
+@bot.command()
+async def recykling(ctx):
+    await ctx.send("niebieski – papier.\n zielony – szkło.\n żółty – metale i tworzywa sztuczne.\n brązowy – bioodpady.\n czarny/szary – odpady zmieszane.")
+
+
+@bot.command()
+async def inventory(ctx):
+    await ctx.send("Worki na smieci,\n rekawiczki jednorazowe,\n zbierak,\n mapa,\n pleack na rzeczy prywatne,\n odkarzacz do rak")
+
+
+@bot.command()
+async def DSZ(ctx):
+    data = datetime.date(2025,4,22)
+    dzisiaj = datetime.date.today()
+    wynik = data - dzisiaj
+    await ctx.send("dzien sprzatania ziemi jest za " +str(wynik.days) +" dni")
+
+
+
+
+bot.run("")
